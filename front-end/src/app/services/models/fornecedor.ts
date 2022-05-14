@@ -1,6 +1,6 @@
-export class Fornecedor {
-    constructor(public codigo: string,
-        public nomeFantasia: string,
-        public email: string,
-        public telefone?: string,){}
+export default class Fornecedor {
+    codigo: string;
+    nomeFantasia: string;
+    email: string;
+    telefone?: string;
 }

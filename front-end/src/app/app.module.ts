@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { FornecedoresComponent } from './fornecedores/fornecedores/fornecedores.component';
 import { FornecedoresFormComponent } from './fornecedores/fornecedores-form/fornecedores-form/fornecedores-form.component';
 import { MenuComponent } from './menu/menu/menu.component';
+import {HttpClientModule} from "@angular/common/http"
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { MenuComponent } from './menu/menu/menu.component';
     BrowserModule,
     AppRoutingModule,
     AccordionModule,
-    ButtonModule
+    ButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
