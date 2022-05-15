@@ -11,5 +11,9 @@ export class FornecedorService {
   getFornecedores(){
     return this.webService.get('fornecedores');
   }
+
+  deleteFornecedor(Codigo:string){
+    return this.webService.delete(`fornecedores/${Codigo}`);
+  }
   
 }
