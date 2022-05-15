@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express'), bodyParser = require('body-parser');
 const app = express();
 app.use(express.json());
 const mongoose = require('./database/mongoose')
@@ -10,10 +10,12 @@ const Usuario = require('./database/models/usuario')
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
     res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
     next();
 });
+
+app.use(bodyParser.json());
 
 // APIs Fornecedores
 app.get('/fornecedores', (req,res) => {
@@ -23,8 +25,8 @@ app.get('/fornecedores', (req,res) => {
 })
 
 app.post('/fornecedores', (req, res) => {
-    (new Fornecedor({"Codigo": req.body.codigo,'NomeFantasia': req.body.nomeFantasia, 'Email': req.body.email, 'Telefone': req.body.telefone}))
-        .save()
+    const newFornecedor = new Fornecedor({"Codigo": req.body.codigo,'NomeFantasia': req.body.nomeFantasia, 'Email': req.body.email, 'Telefone': req.body.telefone});
+        newFornecedor.save()
         .then((fornecedores) => res.send(fornecedores))
         .catch((error) => console.log(error))
 })

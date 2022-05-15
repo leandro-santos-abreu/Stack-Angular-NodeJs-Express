@@ -15,14 +15,14 @@ export class WebService {
   }
 
   post(uri: string, payload: Object){
-    return this.http.get(`${this.ROOT_ULR}/${uri}`, payload);
+    return this.http.post(`${this.ROOT_ULR}/${uri}`, payload, {headers: {'Content-Type': 'application/json'}});
   }
 
   put(uri: string, payload: Object){
-    return this.http.get(`${this.ROOT_ULR}/${uri}`, payload);
+    return this.http.put(`${this.ROOT_ULR}/${uri}`, payload);
   }
 
   delete(uri: string){
-    return this.http.get(`${this.ROOT_ULR}/${uri}`);
+    return this.http.delete(`${this.ROOT_ULR}/${uri}`);
   }
 }

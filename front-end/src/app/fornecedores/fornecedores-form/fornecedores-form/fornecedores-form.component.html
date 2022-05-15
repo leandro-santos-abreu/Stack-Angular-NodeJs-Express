@@ -1,1 +1,25 @@
-<p>fornecedores-form works!</p>
+<form>
+    <div class="form-group">
+      <div class="form-group">
+        <label for="codigoFornecedor">Código</label>
+        <input #codigoInput type="text" class="form-control" id="codigoFornecedor" placeholder="Código" >
+      </div>
+      <div class="form-group">
+        <label for="nomeFantasia">Nome Fantasia</label>
+        <input #nomeFantasiaInput type="text" class="form-control" id="nomeFantasia" placeholder="Nome Fantasia" >
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input #emailInput type="email" class="form-control" id="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone</label>
+      <input #telefoneInput type="text" class="form-control" id="telefone" placeholder="Telefone">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="addFornecedor(codigoInput.value, nomeFantasiaInput.value, emailInput.value, telefoneInput.value)">Cadastrar</button>
+  </form>
+
+
+
+
