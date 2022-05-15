@@ -19,6 +19,10 @@ export class FornecedorService {
     const bodyReq = JSON.stringify(fornecedor);
     console.log(bodyReq);
     return this.webService.post('fornecedores', bodyReq);
+
+    
+  deleteFornecedor(Codigo:string){
+    return this.webService.delete(`fornecedores/${Codigo}`);
   }
   
 }
