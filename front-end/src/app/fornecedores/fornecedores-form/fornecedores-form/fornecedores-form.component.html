@@ -1,4 +1,16 @@
-<form>
+<header class="p-3 bg-dark text-white">
+  <div id="cabecalho">
+    <a href="/"><img src="../../../assets/image/ECeremony.png" alt="Logo" id="logo"></a>
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"></a>
+      </div>
+    </div>
+  </div>
+</header>
+<br>
+<div class="container">
+  <form>
     <div class="form-group">
       <div class="form-group">
         <label for="codigoFornecedor">Código</label>
@@ -17,8 +29,9 @@
       <label for="telefone">Telefone</label>
       <input #telefoneInput type="text" class="form-control" id="telefone" placeholder="Telefone">
     </div>
-    <button type="submit" class="btn btn-primary" (click)="addFornecedor(codigoInput.value, nomeFantasiaInput.value, emailInput.value, telefoneInput.value)">Cadastrar</button>
+    <button [routerLink]="['/fornecedores']" routerLinkActive="router-link-active" type="button" class="btn btn-primary" (click)="addFornecedor(codigoInput.value, nomeFantasiaInput.value, emailInput.value, telefoneInput.value)">Cadastrar</button>
   </form>
+</div>
 
 
 

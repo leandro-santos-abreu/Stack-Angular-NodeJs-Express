@@ -18,11 +18,15 @@ export class FornecedorService {
   criateFornecedor(fornecedor: Fornecedor){
     const bodyReq = JSON.stringify(fornecedor);
     console.log(bodyReq);
-    return this.webService.post('fornecedores', bodyReq);
-
-    
+    return this.webService.post('fornecedores', bodyReq); 
+  }
   deleteFornecedor(Codigo:string){
     return this.webService.delete(`fornecedores/${Codigo}`);
+  }
+
+  updateFornecedor(fornecedor: Fornecedor, id: string){
+    const bodyReq = JSON.stringify(fornecedor);
+    return this.webService.patch('fornecedores', id, bodyReq); 
   }
   
 }

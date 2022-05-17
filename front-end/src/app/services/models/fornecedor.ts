@@ -1,6 +1,6 @@
 export default class Fornecedor {
-    codigo: string;
-    nomeFantasia: string;
-    email: string;
-    telefone?: string;
+    Codigo: string;
+    NomeFantasia: string;
+    Email: string;
+    Telefone?: string;
 }

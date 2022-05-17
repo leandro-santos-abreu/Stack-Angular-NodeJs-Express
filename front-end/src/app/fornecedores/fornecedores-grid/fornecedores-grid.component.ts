@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { FornecedorService } from 'src/app/services/fornecedor/fornecedor-service.service';
 import Fornecedor from 'src/app/services/models/fornecedor';
@@ -23,7 +24,7 @@ export class FornecedoresGridComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['Codigo', 'NomeFantasia', 'Email', 'Telefone'];
 
-  constructor(private fornecedorService: FornecedorService) {
+  constructor(private fornecedorService: FornecedorService, private router: Router) {
     this.dataSource = new FornecedoresGridDataSource();
   }
 
@@ -54,11 +55,12 @@ export class FornecedoresGridComponent implements AfterViewInit {
   }
 
   update() {
-    this.fornecedorService.deleteFornecedor(this.selectedItem.Codigo)
+    this.router.navigateByUrl(`/editarFornecedor/${this.selectedItem._id}`)
   }
 
   delete() {
     this.fornecedorService.deleteFornecedor(this.selectedItem.Codigo).subscribe()
+    window.location.reload();
   }
   
 }

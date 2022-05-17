@@ -25,7 +25,7 @@ app.get('/fornecedores', (req,res) => {
 })
 
 app.post('/fornecedores', (req, res) => {
-    const newFornecedor = new Fornecedor({"Codigo": req.body.codigo,'NomeFantasia': req.body.nomeFantasia, 'Email': req.body.email, 'Telefone': req.body.telefone});
+    const newFornecedor = new Fornecedor({"Codigo": req.body.Codigo,'NomeFantasia': req.body.NomeFantasia, 'Email': req.body.Email, 'Telefone': req.body.Telefone});
         newFornecedor.save()
         .then((fornecedores) => res.send(fornecedores))
         .catch((error) => console.log(error))
@@ -37,8 +37,8 @@ app.get('/fornecedores/:fornecedorCodigo', (req, res) => {
         .catch((error) => console.log(error))
 })
 
-app.patch('/fornecedores/:fornecedorCodigo', (req, res) => {
-    Fornecedor.findOneAndUpdate({'Codigo': req.params.fornecedorCodigo}, {$set: req.body} , {new: true})
+app.patch('/fornecedores/:fornecedorId', (req, res) => {
+    Fornecedor.findOneAndUpdate({'_id': req.params.fornecedorId}, {$set: req.body} , {new: true})
         .then((fornecedores) => res.send(fornecedores))
         .catch((error) => console.log(error))
 })

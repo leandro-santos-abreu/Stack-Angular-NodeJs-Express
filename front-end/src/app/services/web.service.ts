@@ -18,8 +18,8 @@ export class WebService {
     return this.http.post(`${this.ROOT_ULR}/${uri}`, payload, {headers: {'Content-Type': 'application/json'}});
   }
 
-  put(uri: string, payload: Object){
-    return this.http.put(`${this.ROOT_ULR}/${uri}`, payload);
+  patch(uri: string, id:string, payload: Object){
+    return this.http.patch(`${this.ROOT_ULR}/${uri}/${id}`, payload, {headers: {'Content-Type': 'application/json'}});
   }
 
   delete(uri: string){

@@ -8,6 +8,7 @@ const routes: Routes = [
   {path: '', component: MenuComponent},
   {path: 'cadastrarFornecedor', component: FornecedoresFormComponent},
   {path: 'fornecedores', component: FornecedoresGridComponent},
+  {path: 'editarFornecedor/:id', component: FornecedoresFormComponent},
 
 ];
 

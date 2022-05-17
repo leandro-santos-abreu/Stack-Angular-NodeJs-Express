@@ -3,15 +3,13 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { FornecedorService } from 'src/app/services/fornecedor/fornecedor-service.service';
-import Fornecedor from 'src/app/services/models/fornecedor';
 
 // TODO: Replace this with your own data model type
 export interface FornecedoresGridItem {
-  codigo: string;
-  nomeFantasia: string;
-  email: string;
-  telefone?: string;
+  Codigo: string;
+  NomeFantasia: string;
+  Email: string;
+  Telefone?: string;
 
 }
 
@@ -79,10 +77,10 @@ export class FornecedoresGridDataSource extends DataSource<FornecedoresGridItem>
     return data.sort((a, b) => {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
-        case 'Codigo': return compare(a.codigo, b.codigo, isAsc);
-        case 'NomeFantasia': return compare(a.nomeFantasia, b.nomeFantasia, isAsc);
-        case 'Email': return compare(a.email, b.email, isAsc);
-        case 'Telefone': return compare(a.telefone, b.telefone, isAsc);
+        case 'Codigo': return compare(a.Codigo, b.Codigo, isAsc);
+        case 'NomeFantasia': return compare(a.NomeFantasia, b.NomeFantasia, isAsc);
+        case 'Email': return compare(a.Email, b.Email, isAsc);
+        case 'Telefone': return compare(a.Telefone, b.Telefone, isAsc);
 
         default: return 0;
       }
